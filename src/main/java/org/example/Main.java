@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -13,9 +12,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             List<String> allWords = loadAllWords();
+            System.out.println("Words loaded successfully: " + allWords.size());
+            Set<String> wordSet = new HashSet<>(allWords);
             List<String> nineLetterWords = findNineLetterWords(allWords);
             for (String word : nineLetterWords) {
-                List<String> validWords = findValidWords(word, allWords);
+                List<String> validWords = findValidWords(word, wordSet);
                 if (validWords.contains("I") || validWords.contains("A")) {
                     System.out.println(word);
                 }
@@ -28,7 +29,7 @@ public class Main {
     private static List<String> loadAllWords() throws IOException {
         URL wordsUrl = new URL("https://raw.githubusercontent.com/nikiiv/JavaCodingTestOne/master/scrabble-words.txt");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(wordsUrl.openConnection().getInputStream()))) {
-            List<String> ret = br.lines().skip(2).collect(Collectors.toList());
+            List<String> ret = br.lines().collect(Collectors.toList());
             return ret;
         }
     }
@@ -43,17 +44,18 @@ public class Main {
         return nineLetterWords;
     }
 
-    private static List<String> findValidWords(String word, List<String> allWords) {
+    private static List<String> findValidWords(String word, Set<String> wordSet) {
         List<String> validWords = new ArrayList<>();
         validWords.add(word);
         while (word.length() > 1) {
             word = word.substring(0, word.length() - 1);
-            if (allWords.contains(word)) {
+            if (wordSet.contains(word)) {
                 validWords.add(word);
             } else {
                 break;
             }
         }
+        Collections.reverse(validWords);
         return validWords;
     }
 }

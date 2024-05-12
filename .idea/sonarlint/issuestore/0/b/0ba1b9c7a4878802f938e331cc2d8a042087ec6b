@@ -1,6 +1,7 @@
 
 £
-java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Á¥Şúÿÿÿÿ8ØÔŒö1J$385310a1-c672-4587-8120-43745f155b4d
-r	java:S106"+Replace this use of System.out by a logger.(­–ÒÁøÿÿÿÿ8ÄØÔŒö1J$b0543e4d-b1d2-4d85-84ac-7a6cecfc6af2
-t
-java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Á¥Şúÿÿÿÿ8‹ÎÖŒö1
+java:S1488 "[Immediately return this expression instead of assigning it to the temporary variable "ret".(íÓÿÂûÿÿÿÿ8ã¼ïö1J$8edd9598-ee74-40ce-8be0-1291b4542c20
+m	java:S106"+Replace this use of System.out by a logger.(¼ÜŒË8°ã¼ïö1J$0c16258c-ecd3-464e-8aee-9a7c3a3a301b
+r	java:S106"+Replace this use of System.out by a logger.(­–ÒÁøÿÿÿÿ8´ã¼ïö1J$06be8ce1-d248-495e-98b9-00abf232896d
+š
+java:S6204 "RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(íÓÿÂûÿÿÿÿ8½ã¼ïö1J$f8aaab48-6550-4369-b9b0-7fd0dceceb74
